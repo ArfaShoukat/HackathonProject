@@ -1,10 +1,47 @@
 import React from 'react';
 import './DonateCard.css';
-import img1 from './images/img1.jpg'; 
+import { motion } from 'framer-motion';
+import img1 from './images/img1.jpg';
 import sideimg from './images/sideimg.jpg';
+import Footer from './Footer';
+
+const driveCards = [
+  {
+    icon: 'fas fa-users',
+    title: 'Community Center Drive',
+    type: 'Local',
+    description: 'Join us at the community center on October 26th to donate blood and support local patients.',
+  },
+  {
+    icon: 'fas fa-hospital',
+    title: 'Hospital Partnership',
+    type: 'Medical',
+    description: 'Partnering with City Hospital on November 15th for a large-scale blood donation event.',
+  },
+  {
+    icon: 'fas fa-building',
+    title: 'Corporate Drive',
+    type: 'Corporate',
+    description: 'Hosting a blood drive at Tech Solutions Corp. on December 8th to engage employees in life-saving efforts.',
+  },
+  {
+    icon: 'fas fa-university',
+    title: 'University Campaign',
+    type: 'Education',
+    description: 'Launching a blood donation campaign at State University in January to encourage student participation.',
+  },
+];
+
 const DonateCard = () => (
   <div className="donate-section">
-    <div className="gradient-card">
+    {/* Gradient Card Section */}
+    <motion.div
+      className="gradient-card"
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <h2 className="card-title">Give the Gift of Life: Donate Blood</h2>
       <p className="card-description">
         Your blood donation can make a life-saving difference. Join LifeLink in supporting our community's blood needs.
@@ -18,17 +55,19 @@ const DonateCard = () => (
         </button>
       </div>
       <div className="donate-image-container">
-        <img
-          src={img1}
-          alt="Blood donation awareness"
-          className="donate-image"
-        />
+        <img src={img1} alt="Blood donation awareness" className="donate-image" />
       </div>
-    </div>
+    </motion.div>
 
-    {/* Info Cards with Icons */}
+    {/* Info Cards Section */}
     <div className="info-and-image-container">
-      <div className="info-cards-container">
+      <motion.div
+        className="info-cards-container"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
         <div className="info-card">
           <h3 className="info-card-title">
             <i className="fas fa-question-circle"></i> Why Donate Blood?
@@ -61,51 +100,53 @@ const DonateCard = () => (
             Regular donations can provide health benefits, including a free mini-physical and reduced risk of certain diseases.
           </p>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Right side Image */}
-      <div className="side-image-container">
-        <img
-          src={sideimg}
-          alt="Blood donation awareness side"
-          className="side-image"
-        />
-      </div>
+      {/* Right Image */}
+      <motion.div
+        className="side-image-container"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <img src={sideimg} alt="Blood donation awareness side" className="side-image" />
+      </motion.div>
     </div>
 
     {/* Upcoming Drives Section */}
-    <div className="upcoming-drives-container">
+    <motion.div
+      className="upcoming-drives-container"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <h2 className="upcoming-drives-title">Upcoming Drives</h2>
       <p className="upcoming-drives-description">
         Find a blood drive near you and help save lives. Check out our scheduled events and locations.
       </p>
 
       <div className="upcoming-drives-list">
-        <div className="upcoming-drive-card">
-          <i className="fas fa-users"></i>
-          <h3>Community Center Drive</h3>
-          <p>Local</p>
-          <p>Join us at the community center on October 26th to donate blood and support local patients.</p>
-        </div>
-        <div className="upcoming-drive-card">
-          <i className="fas fa-hospital"></i>
-          <h3>Hospital Partnership</h3>
-          <p>Medical</p>
-          <p>Partnering with City Hospital on November 15th for a large-scale blood donation event.</p>
-        </div>
-        <div className="upcoming-drive-card">
-          <i className="fas fa-building"></i>
-          <h3>Corporate Drive</h3>
-          <p>Corporate</p>
-          <p>Hosting a blood drive at Tech Solutions Corp. on December 8th to engage employees in life-saving efforts.</p>
-        </div>
-        <div className="upcoming-drive-card">
-          <i className="fas fa-university"></i>
-          <h3>University Campaign</h3>
-          <p>Education</p>
-          <p>Launching a blood donation campaign at State University in January to encourage student participation.</p>
-        </div>
+        {driveCards.map((drive, index) => (
+          <motion.div
+            key={index}
+            className="upcoming-drive-card"
+            whileHover={{ x: 10, y: -10, rotate: 2 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <i className={drive.icon}></i>
+            <h3>{drive.title}</h3>
+            <p>{drive.type}</p>
+            <p>{drive.description}</p>
+          </motion.div>
+        ))}
       </div>
+    </motion.div>
+
+    {/* Footer Section */}
+    <div style={{ marginTop: '3rem' }}>
+      <Footer />
     </div>
   </div>
 );
