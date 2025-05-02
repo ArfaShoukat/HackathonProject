@@ -1,0 +1,67 @@
+
+.gradient-card {
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .card-button {
+    background-color: white;
+    color: #ff416c;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .card-button:hover {
+    background-color: #fff0f4;
+    color: #d40033;
+  }
+  
+  /* Responsive for small screens */
+  @media (max-width: 768px) {
+    .gradient-card {
+      padding: 20px;
+    }
+  
+    .card-title {
+      font-size: 1.5rem;
+    }
+  
+    .card-description {
+      font-size: 0.95rem;
+    }
+  
+    .card-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .card-button {
+      width: 100%;
+    }
+  }
+  

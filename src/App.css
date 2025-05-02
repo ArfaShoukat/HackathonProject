@@ -1,248 +1,56 @@
-/* General Reset */
-* {
+/* src/App.css */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-body {
-  background-color: #f4f4f4;
-  color: #333;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #d90429;
-  color: white;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
-}
-
-/* Container */
 .container {
-  padding: 40px 20px;
-  max-width: 1000px;
-  margin: auto;
+  width: 80%;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
-/* Headings */
-.main-heading {
-  font-size: 2.5rem;
-  color: #d90429;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.section-heading {
-  font-size: 2rem;
-  color: #d90429;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Text */
-.text-center {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #555;
-}
-
-/* Services Grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-/* Cards */
-.card {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card-title {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-/* Form Styles */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 400px;
-  margin: auto;
-}
-
-.form input,
-.form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form button {
-  background-color: #d90429;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.form button:hover {
-  background-color: #b00223;
-}
-
-/* Auth Forms */
 .centered-form {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
-  padding: 20px;
+  height: 100vh;
 }
 
 .form-card {
-  background-color: white;
-  padding: 30px 20px;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 300px;
 }
 
 .form-title {
+  margin-bottom: 15px;
   text-align: center;
-  margin-bottom: 20px;
-  color: #d90429;
+  font-size: 1.5rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .nav-links a {
-    padding: 10px 0;
-  }
-
-  .main-heading {
-    font-size: 2rem;
-  }
-
-  .section-heading {
-    font-size: 1.5rem;
-  }
-
-  .form-card {
-    padding: 20px 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .main-heading {
-    font-size: 1.7rem;
-  }
-
-  .section-heading {
-    font-size: 1.3rem;
-  }
-
-  .card {
-    padding: 15px;
-  }
-
-  .form input,
-  .form textarea {
-    font-size: 0.9rem;
-  }
-
-  .form button {
-    font-size: 0.9rem;
-  }
-}
-
-
-
-/* Gradient Red Card */
-.gradient-card {
-  background: linear-gradient(to right, #ff416c, #ff4b2b); /* Gradient Red */
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  position: relative;
-}
-
-.card-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.card-description {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.card-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.card-button {
-  padding: 10px 20px;
-  background-color: white;
-  color: #ff4b2b;
-  border: none;
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
   border-radius: 5px;
-  font-size: 1rem;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff4b2b;
+  border: none;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.card-button:hover {
-  background-color: #ff4b2b;
-  color: white;
+button:hover {
+  background-color: #ff416c;
 }
