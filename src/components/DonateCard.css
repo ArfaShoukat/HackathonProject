@@ -1,67 +1,123 @@
+.donate-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
 
 .gradient-card {
-    background: linear-gradient(to right, #ff4b2b, #ff416c);
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    margin-top: 30px;
+  background: linear-gradient(to right, #68060e, #962323);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card-button {
+  padding: 0.6rem 1.2rem;
+  background-color: white;
+  color: #74151c;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #ffe5e9;
+}
+
+.donate-image-container {
+  max-width: 800px;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.donate-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Info Cards Section */
+.info-cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.info-card {
+  background: linear-gradient(to right, #68060e, #962323);
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: calc(50% - 1rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.info-card-description {
+  font-size: 1rem;
+  color: white;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .info-cards-container {
+    flex-direction: column;
+    align-items: center;
   }
-  
+
+  .info-card {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
   .card-title {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
   }
-  
+
   .card-description {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
   }
-  
+
   .card-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .card-button {
-    background-color: white;
-    color: #ff416c;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    max-width: 200px;
   }
-  
-  .card-button:hover {
-    background-color: #fff0f4;
-    color: #d40033;
-  }
-  
-  /* Responsive for small screens */
-  @media (max-width: 768px) {
-    .gradient-card {
-      padding: 20px;
-    }
-  
-    .card-title {
-      font-size: 1.5rem;
-    }
-  
-    .card-description {
-      font-size: 0.95rem;
-    }
-  
-    .card-buttons {
-      flex-direction: column;
-      gap: 10px;
-    }
-  
-    .card-button {
-      width: 100%;
-    }
-  }
-  
+}
