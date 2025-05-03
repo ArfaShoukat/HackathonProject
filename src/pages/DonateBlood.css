@@ -99,7 +99,7 @@
   background-color: #d62828;
 }
 
-/* Donation Process */
+
 .donation-process {
   padding: 4rem 2rem;
   background-color: #f1faee;
@@ -110,6 +110,7 @@
   font-size: 2.5rem;
   margin-bottom: 2rem;
 }
+
 
 .steps {
   display: flex;
@@ -193,7 +194,7 @@
   background-color: #d62828;
 }
 
-/* Why Donate */
+
 .why-donate {
   background-color: #f1faee;
   padding: 3rem 2rem;
@@ -212,7 +213,7 @@
   margin-bottom: 2rem;
 }
 
-/* Call to Action Quote */
+
 .cta-quote {
   background-color: #4d0404;
   color: white;
@@ -247,7 +248,14 @@
   background-color: #4d0404;
   color: white;
 }
+.button-row {
 
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap; 
+}
 
 .footer {
   background-color: #4d0404;
@@ -284,7 +292,7 @@
   color: white;
 }
 
-/* Media Queries */
+
 @media (max-width: 768px) {
   .donation-process .steps {
     flex-direction: column;

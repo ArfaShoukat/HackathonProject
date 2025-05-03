@@ -80,7 +80,7 @@ const DonorList = () => {
 
   return (
     <div className="donor-container">
-      <h2 className="title">Registered Blood Donors</h2>
+      <h2 className="title">All Registered Blood Donors List</h2>
       {donors.length === 0 ? (
         <p className="no-donors">No donors registered yet.</p>
       ) : (

@@ -24,12 +24,16 @@ const fadeUp = {
   }),
 };
 
-const bloodGroups = [
-  "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"
-];
+const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
 const cities = [
-  "Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar", "Quetta", "Multan"
+  "Karachi",
+  "Lahore",
+  "Islamabad",
+  "Rawalpindi",
+  "Peshawar",
+  "Quetta",
+  "Multan",
 ];
 
 const DonateBlood = () => {
@@ -71,6 +75,7 @@ const DonateBlood = () => {
           Book an Appointment
         </motion.button>
       </motion.section>
+
       <motion.section className="appointment-form" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
         <div className="form-container">
           <motion.div className="form-left" variants={fadeUp}>
@@ -94,62 +99,48 @@ const DonateBlood = () => {
             </select>
 
             <textarea placeholder="Additional Notes..." rows="4" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
-            <motion.button type="submit" className="primary-btn" whileHover={{ scale: 1.05 }}>
-              Confirm Appointment
-            </motion.button>
+
+            <div className="button-row">
+              <motion.button type="submit" className="primary-btn" whileHover={{ scale: 1.05 }}>
+                Confirm Appointment
+              </motion.button>
+              <motion.button type="button" className="primary-btn" whileHover={{ scale: 1.05 }} onClick={() => navigate("/DonorList")}>
+                View Donor List
+              </motion.button>
+            </div>
           </motion.form>
         </div>
       </motion.section>
 
       <section className="donation-process">
-        <h2>
-          <FaTint /> How It Works
-        </h2>
+        <h2><FaTint /> How It Works</h2>
         <div className="steps">
-          {[
-            {
-              step: "01",
-              title: "Check Eligibility",
-              desc: "Ensure you meet the minimum health and age requirements.",
-            },
-            {
-              step: "02",
-              title: "Book Your Slot",
-              desc: "Choose a date and time that works for you to donate.",
-            },
-            {
-              step: "03",
-              title: "Donate Blood",
-              desc: "Come in, relax, and help save lives in just a few minutes.",
-            },
-          ].map((item, index) => (
+          {["Check Eligibility", "Book Your Slot", "Donate Blood"].map((title, index) => (
             <motion.div
               className="step"
-              key={item.title}
+              key={title}
               custom={index + 1}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
             >
-              <span>{item.step}</span>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
+              <span>{`0${index + 1}`}</span>
+              <h3>{title}</h3>
+              <p>{
+                index === 0
+                  ? "Ensure you meet the minimum health and age requirements."
+                  : index === 1
+                    ? "Choose a date and time that works for you to donate."
+                    : "Come in, relax, and help save lives in just a few minutes."
+              }</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <motion.section
-        className="eligibility"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUp}
-      >
-        <h2>
-          <FaCheckCircle /> Who Can Donate?
-        </h2>
+      <motion.section className="eligibility" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <h2><FaCheckCircle /> Who Can Donate?</h2>
         <ul>
           <li>Aged 18–50 and weigh at least 50 kg</li>
           <li>Healthy vital signs and normal blood pressure</li>
@@ -162,28 +153,14 @@ const DonateBlood = () => {
         </motion.button>
       </motion.section>
 
-      <motion.section
-        className="why-donate"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUp}
-      >
-        <h2>
-          <FaHandHoldingHeart /> Why Donate Blood?
-        </h2>
+      <motion.section className="why-donate" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <h2><FaHandHoldingHeart /> Why Donate Blood?</h2>
         <p>
           Your donation could be the difference between life and death for someone in need. Blood is essential during surgeries, emergencies, and treatments — and it cannot be manufactured. Your contribution gives others a second chance at life.
         </p>
       </motion.section>
 
-      <motion.section
-        className="cta-quote"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
+      <motion.section className="cta-quote" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }}>
         <blockquote>
           “You don’t need a cape to be a hero — just a kind heart and a willingness to donate blood.”
         </blockquote>
@@ -192,13 +169,10 @@ const DonateBlood = () => {
           Start Saving Lives
         </motion.button>
       </motion.section>
+
       <footer className="footer">
-        <p>
-          <FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7
-        </p>
-        <p>
-          <FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com
-        </p>
+        <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
+        <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
         <p>&copy; 2023 LifeLink - Website design by Arfa</p>
       </footer>
 
