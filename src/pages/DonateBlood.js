@@ -13,6 +13,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import donateImg from "../components/images/donateimg.jpg";
 import ScrollToTop from "../components/ScrollTop";
+import { supabase } from "../config/Supabase";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -23,6 +24,14 @@ const fadeUp = {
   }),
 };
 
+const bloodGroups = [
+  "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"
+];
+
+const cities = [
+  "Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar", "Quetta", "Multan"
+];
+
 const DonateBlood = () => {
   const navigate = useNavigate();
 
@@ -30,19 +39,22 @@ const DonateBlood = () => {
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
   const [bloodGroup, setBloodGroup] = React.useState("");
+  const [city, setCity] = React.useState("");
   const [notes, setNotes] = React.useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const donor = { name, email, phone, bloodGroup, notes };
-    const existing = JSON.parse(localStorage.getItem("donors")) || [];
-    localStorage.setItem("donors", JSON.stringify([...existing, donor]));
 
-    // Optionally, you can show a toast or modal here
-    alert("Your appointment is booked!");
+    const donor = { name, email, phone, blood_group: bloodGroup, notes, city };
+    const { data, error } = await supabase.from("donors").insert([donor]);
 
-    // Navigate to DonorList page after submission
-    navigate("/DonorList");
+    if (error) {
+      console.error("Supabase error:", error);
+      alert("Failed to book appointment. Please try again.");
+    } else {
+      alert("Your appointment is booked!");
+      navigate("/DonorList");
+    }
   };
 
   return (
@@ -59,67 +71,36 @@ const DonateBlood = () => {
           Book an Appointment
         </motion.button>
       </motion.section>
-
-      <motion.section
-        className="appointment-form"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeUp}
-      >
+      <motion.section className="appointment-form" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
         <div className="form-container">
           <motion.div className="form-left" variants={fadeUp}>
             <img src={donateImg} alt="Donate" />
           </motion.div>
 
           <motion.form className="form-right" variants={fadeUp} onSubmit={handleSubmit}>
-            <h2>
-              <FaCalendarAlt /> Book Your Donation
-            </h2>
-            <input
-              type="text"
-              placeholder="Full Name"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              required
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Blood Group"
-              required
-              value={bloodGroup}
-              onChange={(e) => setBloodGroup(e.target.value)}
-            />
-            <textarea
-              placeholder="Additional Notes..."
-              rows="4"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-            ></textarea>
-            <motion.button
-              type="submit"
-              className="primary-btn"
-              whileHover={{ scale: 1.05 }}
-            >
+            <h2><FaCalendarAlt /> Book Your Donation</h2>
+            <input type="text" placeholder="Full Name" required value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="tel" placeholder="Phone Number (+92...)" required value={phone} onChange={(e) => setPhone(e.target.value)} />
+
+            <select required value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)}>
+              <option value="">Select Blood Group</option>
+              {bloodGroups.map(group => <option key={group} value={group}>{group}</option>)}
+            </select>
+
+            <select required value={city} onChange={(e) => setCity(e.target.value)}>
+              <option value="">Select City</option>
+              {cities.map(city => <option key={city} value={city}>{city}</option>)}
+            </select>
+
+            <textarea placeholder="Additional Notes..." rows="4" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+            <motion.button type="submit" className="primary-btn" whileHover={{ scale: 1.05 }}>
               Confirm Appointment
             </motion.button>
           </motion.form>
         </div>
       </motion.section>
+
       <section className="donation-process">
         <h2>
           <FaTint /> How It Works
@@ -220,8 +201,10 @@ const DonateBlood = () => {
         </p>
         <p>&copy; 2023 LifeLink - Website design by Arfa</p>
       </footer>
+
       <ScrollToTop />
     </div>
   );
 };
-export default DonateBlood
+
+export default DonateBlood;

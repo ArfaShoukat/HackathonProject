@@ -20,7 +20,7 @@ const Navbar = () => {
     };
     getUser();
 
- 
+
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user || null);
     });
@@ -52,11 +52,14 @@ const Navbar = () => {
       <div className={`nav-links ${menuOpen ? "open" : ""}`}>
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link to="/AboutUs" onClick={() => setMenuOpen(false)}>About</Link>
+        <Link to="/DonorDashboard" className="nav-link">
+          Dashboard
+        </Link>
         <Link to="/DonateBlood" onClick={() => setMenuOpen(false)}>Donate Blood</Link>
 
         {!user ? (
           <>
-           
+
           </>
         ) : (
           <button className="logout-btn" onClick={handleLogout}>Logout</button>

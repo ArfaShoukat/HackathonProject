@@ -1,303 +1,314 @@
-
 .donate-container {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #fafafa;
-    margin-top: 6rem;
-   
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  margin-top: 6rem;
+ 
+}
+
+.hero-section {
+  background: linear-gradient(150deg, #4d0404, #f1faee);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-section .primary-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #f1faee;
+  color: #4d0404;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-section .primary-btn:hover {
+  background-color: #4d0404;
+  color: white;
+}
+
+.appointment-form {
+  background-color: #fff;
+  padding: 3rem;
+  margin: 2rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-form h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.form-left {
+  flex: 1;
+}
+
+.form-left img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.form-right {
+  flex: 2;
+}
+
+.appointment-form input,
+.appointment-form textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.appointment-form .primary-btn {
+  padding: 1rem 2rem;
+  background-color: #4d0404;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-form .primary-btn:hover {
+  background-color: #d62828;
+}
+
+/* Donation Process */
+.donation-process {
+  padding: 4rem 2rem;
+  background-color: #f1faee;
+  text-align: center;
+}
+
+.donation-process h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.step {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1;
+  max-width: 250px;
+}
+
+.step span {
+  font-size: 3rem;
+  color: #4d0404;
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.form-right input,
+.form-right select,
+.form-right textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.eligibility {
+  background-color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.eligibility h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.eligibility ul {
+  list-style: none;
+  padding: 0;
+}
+
+.eligibility li {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.eligibility .primary-btn {
+  padding: 1rem 2rem;
+  background-color: #4d0404;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.eligibility .primary-btn:hover {
+  background-color: #d62828;
+}
+
+/* Why Donate */
+.why-donate {
+  background-color: #f1faee;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.why-donate h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.why-donate p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Call to Action Quote */
+.cta-quote {
+  background-color: #4d0404;
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.cta-quote blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.cta-quote h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-quote .primary-btn {
+  padding: 1rem 2rem;
+  background-color: #f1faee;
+  color: #4d0404;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-quote .primary-btn:hover {
+  background-color: #4d0404;
+  color: white;
+}
+
+
+.footer {
+  background-color: #4d0404;
+  color: rgb(255, 255, 255);
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: left;
+  width: 100%;        
+  box-sizing: border-box;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: rgb(255, 255, 255);
+}
+
+.footer .primary-btn {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: #f1faee;
+  color: #4d0404;
+  border: none;
+ 
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.footer .primary-btn:hover {
+  background-color: #4d0404;
+  color: white;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .donation-process .steps {
+    flex-direction: column;
+    gap: 1.5rem;
   }
-  
-  .hero-section {
-    background: linear-gradient(150deg, #4d0404, #f1faee);
-    color: white;
-    text-align: center;
-    padding: 4rem 2rem;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-section .primary-btn {
-    padding: 0.75rem 1.5rem;
-    background-color: #f1faee;
-    color: #4d0404;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .hero-section .primary-btn:hover {
-    background-color: #4d0404;
-    color: white;
-  }
-  
-  .appointment-form {
-    background-color: #fff;
-    padding: 3rem;
-    margin: 2rem 0;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .appointment-form h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-container {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-  }
-  
-  .form-left {
-    flex: 1;
-  }
-  
-  .form-left img {
+
+  .step {
     max-width: 100%;
-    height: auto;
-    border-radius: 8px;
   }
-  
-  .form-right {
-    flex: 2;
+
+  .hero-section h1 {
+    font-size: 2rem;
   }
-  
-  .appointment-form input,
-  .appointment-form textarea {
-    padding: 0.75rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+
+  .hero-section p {
     font-size: 1rem;
-    width: 100%;
-    margin-bottom: 1.5rem;
   }
-  
+
+  .appointment-form form {
+    gap: 1.2rem;
+  }
+
   .appointment-form .primary-btn {
     padding: 1rem 2rem;
-    background-color: #4d0404;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
   }
-  
-  .appointment-form .primary-btn:hover {
-    background-color: #d62828;
-  }
-  
-  /* Donation Process */
-  .donation-process {
-    padding: 4rem 2rem;
-    background-color: #f1faee;
-    text-align: center;
-  }
-  
-  .donation-process h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .steps {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-  }
-  
-  .step {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1;
-    max-width: 250px;
-  }
-  
-  .step span {
-    font-size: 3rem;
-    color: #4d0404;
-    margin-bottom: 1rem;
-  }
-  
-  .step h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .step p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  /* Eligibility */
-  .eligibility {
-    background-color: #fff;
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  
-  .eligibility h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .eligibility ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .eligibility li {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .eligibility .primary-btn {
-    padding: 1rem 2rem;
-    background-color: #4d0404;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .eligibility .primary-btn:hover {
-    background-color: #d62828;
-  }
-  
-  /* Why Donate */
-  .why-donate {
-    background-color: #f1faee;
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  
-  .why-donate h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .why-donate p {
-    font-size: 1.2rem;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-  }
-  
-  /* Call to Action Quote */
-  .cta-quote {
-    background-color: #4d0404;
-    color: white;
-    text-align: center;
-    padding: 3rem 2rem;
-  }
-  
-  .cta-quote blockquote {
-    font-size: 1.5rem;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    color: white;
-  }
-  
-  .cta-quote h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .cta-quote .primary-btn {
-    padding: 1rem 2rem;
-    background-color: #f1faee;
-    color: #4d0404;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-quote .primary-btn:hover {
-    background-color: #4d0404;
-    color: white;
-  }
-  
- 
-  .footer {
-    background-color: #4d0404;
-    color: rgb(255, 255, 255);
-    padding: 2rem 2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    text-align: left;
-    width: 100%;        
-    box-sizing: border-box;
-  }
-  
-  .footer p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    color: rgb(255, 255, 255);
-  }
-  
-  .footer .primary-btn {
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    background-color: #f1faee;
-    color: #4d0404;
-    border: none;
-   
-    cursor: pointer;
-    font-size: 1.2rem;
-  }
-  
-  .footer .primary-btn:hover {
-    background-color: #4d0404;
-    color: white;
-  }
-  
-  /* Media Queries */
-  @media (max-width: 768px) {
-    .donation-process .steps {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  
-    .step {
-      max-width: 100%;
-    }
-  
-    .hero-section h1 {
-      font-size: 2rem;
-    }
-  
-    .hero-section p {
-      font-size: 1rem;
-    }
-  
-    .appointment-form form {
-      gap: 1.2rem;
-    }
-  
-    .appointment-form .primary-btn {
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-    }
-  }
-  
+}

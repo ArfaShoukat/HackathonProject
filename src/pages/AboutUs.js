@@ -10,8 +10,8 @@ const fadeInUp = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1,  // Shortened delay for faster animation
-      duration: 0.4,   // Shortened duration for faster transition
+      delay: i * 0.1,
+      duration: 0.4,   
       ease: [0.25, 0.8, 0.25, 1],
     },
   }),
