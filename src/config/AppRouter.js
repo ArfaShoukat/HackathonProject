@@ -23,3 +23,4 @@ const AppRouter = createBrowserRouter([
 ]);
 
 export default AppRouter;
+
