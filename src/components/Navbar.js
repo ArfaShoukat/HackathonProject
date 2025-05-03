@@ -22,13 +22,13 @@ const Navbar = () => {
 
       <div className={`nav-links ${menuOpen ? "open" : ""}`}>
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        {/* <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link> */}
-        <Link to="/AboutUs">AboutUs</Link>
+        <Link to="/AboutUs" onClick={() => setMenuOpen(false)}>About</Link>
+        {/* <Link to="/AboutUs">AboutUs</Link> */}
 
         <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
         <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-        <Link to="/signup" onClick={() => setMenuOpen(false)}>Sign Up</Link>
-        <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+        <Link to="/Signup" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+        <Link to="/Login" onClick={() => setMenuOpen(false)}>Login</Link>
       </div>
     </nav>
   );
