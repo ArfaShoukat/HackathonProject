@@ -10,6 +10,7 @@ import {
   FaPhone,
   FaEnvelope,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import donateImg from "../components/images/donateimg.jpg";
 import ScrollToTop from "../components/ScrollTop";
 
@@ -23,6 +24,27 @@ const fadeUp = {
 };
 
 const DonateBlood = () => {
+  const navigate = useNavigate();
+
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [bloodGroup, setBloodGroup] = React.useState("");
+  const [notes, setNotes] = React.useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const donor = { name, email, phone, bloodGroup, notes };
+    const existing = JSON.parse(localStorage.getItem("donors")) || [];
+    localStorage.setItem("donors", JSON.stringify([...existing, donor]));
+
+    // Optionally, you can show a toast or modal here
+    alert("Your appointment is booked!");
+
+    // Navigate to DonorList page after submission
+    navigate("/DonorList");
+  };
+
   return (
     <div className="donate-container">
       <motion.section
@@ -49,15 +71,45 @@ const DonateBlood = () => {
           <motion.div className="form-left" variants={fadeUp}>
             <img src={donateImg} alt="Donate" />
           </motion.div>
-          <motion.form className="form-right" variants={fadeUp}>
+
+          <motion.form className="form-right" variants={fadeUp} onSubmit={handleSubmit}>
             <h2>
               <FaCalendarAlt /> Book Your Donation
             </h2>
-            <input type="text" placeholder="Full Name" required />
-            <input type="email" placeholder="Email Address" required />
-            <input type="tel" placeholder="Phone Number" required />
-            <input type="text" placeholder="Blood Group" required />
-            <textarea placeholder="Additional Notes..." rows="4"></textarea>
+            <input
+              type="text"
+              placeholder="Full Name"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Blood Group"
+              required
+              value={bloodGroup}
+              onChange={(e) => setBloodGroup(e.target.value)}
+            />
+            <textarea
+              placeholder="Additional Notes..."
+              rows="4"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+            ></textarea>
             <motion.button
               type="submit"
               className="primary-btn"
@@ -68,7 +120,6 @@ const DonateBlood = () => {
           </motion.form>
         </div>
       </motion.section>
-
       <section className="donation-process">
         <h2>
           <FaTint /> How It Works
@@ -160,7 +211,6 @@ const DonateBlood = () => {
           Start Saving Lives
         </motion.button>
       </motion.section>
-
       <footer className="footer">
         <p>
           <FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7
@@ -174,5 +224,4 @@ const DonateBlood = () => {
     </div>
   );
 };
-
-export default DonateBlood;
+export default DonateBlood
