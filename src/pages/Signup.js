@@ -8,7 +8,7 @@ const Signup = () => {
   const handleSignup = (e) => {
     e.preventDefault();
 
-    // You can add actual signup logic here
+
     alert('Successfully signed up!');
     navigate('/login');
   };
