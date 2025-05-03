@@ -1,0 +1,23 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 5px;
+    font-size: 2.5rem;
+    color: #660d06; 
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .scroll-to-top.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scroll-to-top:hover {
+    color: #69301f; 
+    transform: translateY(-5px);
+  }
+  

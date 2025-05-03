@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import mainimg from '../components/images/mainimg.jpg';
 import sideimg from '../components/images/sideimg.jpg'
 import Footer from '../components/Footer';
+import ScrollToTop from '../components/ScrollTop';
 
 const driveCards = [
   {
@@ -146,6 +147,7 @@ const Home = () => (
     <div style={{ marginTop: '3rem' }} className="footer-container">
       <Footer />
     </div>
+    <ScrollToTop />
   </div>
 );
 

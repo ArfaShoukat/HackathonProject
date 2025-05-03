@@ -1,47 +1,204 @@
 import React from 'react';
 import './AboutUs.css';
-import { FaTint, FaLink, FaUserMd, FaRegComments, FaPhone, FaEnvelope,FaInfoCircle } from 'react-icons/fa';
+import { FaTint, FaLink, FaUserMd, FaRegComments, FaPhone, FaEnvelope, FaInfoCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import ScrollToTop from '../components/ScrollTop';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,  // Shortened delay for faster animation
+      duration: 0.4,   // Shortened duration for faster transition
+      ease: [0.25, 0.8, 0.25, 1],
+    },
+  }),
+};
 
 const AboutUs = () => {
   return (
     <section className="about-section">
       <div className="container">
-        <h1>Our Lifesaving Mission</h1>
-        <p className="intro">Connecting Donors, Saving Lives</p>
-        <p className="description">
+
+        <motion.h1
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          Our Lifesaving Mission
+        </motion.h1>
+
+        <motion.p
+          className="intro"
+          variants={fadeInUp}
+          custom={1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          Connecting Donors, Saving Lives
+        </motion.p>
+
+        <motion.p
+          className="description"
+          variants={fadeInUp}
+          custom={2}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           At LifeLink, we're driven by a simple yet powerful mission: to ensure a stable and readily available blood supply for everyone in need.
-        </p>
+        </motion.p>
 
         <div className="mission-goals">
-          <div className="goal"><FaRegComments /><h3>Raise Awareness</h3><p>Educating the public on the vital role of blood donation.</p></div>
-          <div className="goal"><FaTint /><h3>Organize Drives</h3><p>Creating convenient opportunities for individuals to donate blood.</p></div>
-          <div className="goal"><FaLink /><h3>Connect Donors</h3><p>Linking generous donors with those in urgent need of blood.</p></div>
+          {[{
+            icon: <FaRegComments />,
+            title: 'Raise Awareness',
+            desc: 'Educating the public on the vital role of blood donation.'
+          }, {
+            icon: <FaTint />,
+            title: 'Organize Drives',
+            desc: 'Creating convenient opportunities for individuals to donate blood.'
+          }, {
+            icon: <FaLink />,
+            title: 'Connect Donors',
+            desc: 'Linking generous donors with those in urgent need of blood.'
+          }].map((goal, index) => (
+            <motion.div
+              className="goal"
+              key={goal.title}
+              custom={3}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              {goal.icon}
+              <h3>{goal.title}</h3>
+              <p>{goal.desc}</p>
+            </motion.div>
+          ))}
         </div>
 
-        <blockquote>“The smallest act of kindness is worth more than the grandest intention.” – Oscar Wilde</blockquote>
+        <motion.blockquote
+          variants={fadeInUp}
+          custom={6}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          “The smallest act of kindness is worth more than the grandest intention.” – Oscar Wilde
+        </motion.blockquote>
 
-        <h2>Meet Our Dedicated Team</h2>
+        <motion.h2
+          variants={fadeInUp}
+          custom={7}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          Meet Our Dedicated Team
+        </motion.h2>
+
         <div className="team">
-          <div className="team-member"><FaUserMd /><h4>Dr. Emily Carter</h4><p>Executive Director</p></div>
-          <div className="team-member"><FaUserMd /><h4>David Rodriguez</h4><p>Donation Coordinator</p></div>
-          <div className="team-member"><FaUserMd /><h4>Sarah Johnson</h4><p>Communications Manager</p></div>
+          {[
+            { name: "Dr. Emily Carter", role: "Executive Director" },
+            { name: "David Rodriguez", role: "Donation Coordinator" },
+            { name: "Sarah Johnson", role: "Communications Manager" }
+          ].map((member, index) => (
+            <motion.div
+              className="team-member"
+              key={member.name}
+              custom={5}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <FaUserMd />
+              <h4>{member.name}</h4>
+              <p>{member.role}</p>
+            </motion.div>
+          ))}
         </div>
 
-        <h2>Our History: A Legacy of Lifesaving</h2>
-        <p className="description">
+        <motion.h2
+          variants={fadeInUp}
+          custom={5}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          Our History: A Legacy of Lifesaving
+        </motion.h2>
+
+        <motion.p
+          className="description"
+          variants={fadeInUp}
+          custom={5}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           Founded in 2010 by passionate healthcare professionals, LifeLink has grown from a small initiative to a major force in blood donation. We now work with hospitals and communities to ensure reliable blood supply using technology and partnerships.
-        </p>
-        <a href="#" className="btn">Learn More</a>
+        </motion.p>
 
-        <h2>LifeLink by the Numbers</h2>
+        <motion.a
+          href="#"
+          className="btn"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          Learn More
+        </motion.a>
+
+        <motion.h2
+          variants={fadeInUp}
+          custom={5}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          LifeLink by the Numbers
+        </motion.h2>
+
         <div className="stats">
-          <div className="stat"><h3>15,000+</h3><p>Donations Collected</p></div>
-          <div className="stat"><h3>45,000+</h3><p>Lives Impacted</p></div>
-          <div className="stat"><h3>300+</h3><p>Blood Drives Organized</p></div>
-          <div className="stat"><h3>1,000+</h3><p>Volunteers Involved</p></div>
+          {[
+            { num: "15,000+", label: "Donations Collected" },
+            { num: "45,000+", label: "Lives Impacted" },
+            { num: "300+", label: "Blood Drives Organized" },
+            { num: "1,000+", label: "Volunteers Involved" }
+          ].map((stat, index) => (
+            <motion.div
+              className="stat"
+              key={stat.label}
+              custom={5}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3>{stat.num}</h3>
+              <p>{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="faq">
+        <motion.div
+          className="faq"
+          variants={fadeInUp}
+          custom={2}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           <h2>Frequently Asked Questions</h2>
           <details>
             <summary>What is LifeLink's mission?</summary>
@@ -55,12 +212,21 @@ const AboutUs = () => {
             <summary>What are the eligibility criteria for blood donation?</summary>
             <p>You must be 18+, healthy, and meet standard medical requirements.</p>
           </details>
-        </div>
-        <footer className="footer">
-                <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
-                <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
-                <p>&copy; 2023 LifeLink - Website design by Arfa</p>
-              </footer>
+        </motion.div>
+
+        <motion.footer
+          className="footer"
+          variants={fadeInUp}
+          custom={5}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
+          <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
+          <p>&copy; 2023 LifeLink - Website design by Arfa</p>
+        </motion.footer>
+        <ScrollToTop />
       </div>
     </section>
   );
