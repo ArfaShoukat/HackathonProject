@@ -62,7 +62,7 @@
     text-decoration: underline;
   }
   
-  /* Responsive Design */
+
   @media (max-width: 500px) {
     .auth-form {
       padding: 1.2rem;

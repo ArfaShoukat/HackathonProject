@@ -1,11 +1,11 @@
 import React from "react";
 import "./DonateBlood.css";
-import { FaHeartbeat, FaTint, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaHandHoldingHeart, FaPhone, FaEnvelope } from "react-icons/fa";
+import {FaTint, FaCalendarAlt, FaCheckCircle, FaInfoCircle, FaHandHoldingHeart, FaPhone, FaEnvelope } from "react-icons/fa";
 import donateImg from '../components/images/donateimg.jpg';
 
 const DonateBlood = () => {
   return (
-    
+
     <div className="donate-container">
       <section className="hero-section">
         <h1>Give the Gift of Life</h1>
@@ -15,22 +15,22 @@ const DonateBlood = () => {
 
 
       <section className="appointment-form">
-  
-  <div className="form-container">
-    <div className="form-left">
-      <img src={donateImg} alt="Donate Image" />
-    </div>
-    <form className="form-right">
-    <h2><FaCalendarAlt /> Book Your Donation</h2>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <input type="text" placeholder="Blood Group" required />
-      <textarea placeholder="Additional Notes..." rows="4"></textarea>
-      <button className="primary-btn" type="submit">Confirm Appointment</button>
-    </form>
-  </div>
-</section>
+
+        <div className="form-container">
+          <div className="form-left">
+            <img src={donateImg} alt="Donate Image" />
+          </div>
+          <form className="form-right">
+            <h2><FaCalendarAlt /> Book Your Donation</h2>
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email Address" required />
+            <input type="tel" placeholder="Phone Number" required />
+            <input type="text" placeholder="Blood Group" required />
+            <textarea placeholder="Additional Notes..." rows="4"></textarea>
+            <button className="primary-btn" type="submit">Confirm Appointment</button>
+          </form>
+        </div>
+      </section>
 
 
       <section className="donation-process">
@@ -77,7 +77,7 @@ const DonateBlood = () => {
         <button className="primary-btn">Start Saving Lives</button>
       </section>
 
-      <footer className="footer">
+      <footer className="footer">a
         <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
         <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
         <p>&copy; 2023 LifeLink - Website design by Arfa</p>

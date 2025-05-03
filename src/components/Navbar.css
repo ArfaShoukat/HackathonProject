@@ -14,11 +14,11 @@
     align-items: center;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #fff; /* Adjust color if needed */
+    color: #fff; 
   }
   
   .logo-img {
-    height: 80px; /* Adjust size as needed */
+    height: 80px; 
     margin-right: 10px;
   }
   
@@ -44,7 +44,6 @@
     text-decoration: underline;
   }
   
-  /* Hamburger icon */
   .hamburger {
     display: none;
     flex-direction: column;
@@ -60,7 +59,7 @@
     border-radius: 2px;
   }
   
-  /* Mobile view */
+
   @media (max-width: 768px) {
     .hamburger {
       display: flex;

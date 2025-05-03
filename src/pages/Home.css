@@ -10,7 +10,6 @@
     background: linear-gradient(to right, #4d0404, #962323);
     padding: 2rem;
     text-align: center;
-    /* width: 100%; */
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
@@ -62,7 +61,6 @@
     object-fit: cover;
   }
   
-  /* Info Cards Section with Image on the Right */
   .info-and-image-container {
     display: flex;
     justify-content: space-between;
@@ -114,7 +112,7 @@
     object-fit: cover;
   }
   
-  /* Upcoming Drives Section */
+ 
   .upcoming-drives-container {
     width: 100%;
     margin-top: 3rem;

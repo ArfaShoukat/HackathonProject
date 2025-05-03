@@ -143,9 +143,9 @@ const Home = () => (
         ))}
       </div>
     </motion.div>
-    <div  style={{ marginTop: '3rem' }} className="footer-container">
-  <Footer />
-</div>
+    <div style={{ marginTop: '3rem' }} className="footer-container">
+      <Footer />
+    </div>
   </div>
 );
 
