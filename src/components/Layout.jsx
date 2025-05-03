@@ -13,7 +13,7 @@ const Layout = () => {
     const fetchUser = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setUser(session?.user || null);
-      setLoading(false); 
+      setLoading(false);
     };
     fetchUser();
 

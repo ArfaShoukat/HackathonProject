@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import donateImg from "../components/images/donateimg.jpg";
 import ScrollToTop from "../components/ScrollTop";
 import { supabase } from "../config/Supabase";
+import Swal from 'sweetalert2';
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -54,12 +56,22 @@ const DonateBlood = () => {
 
     if (error) {
       console.error("Supabase error:", error);
-      alert("Failed to book appointment. Please try again.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Failed to book appointment. Please try again.",
+      });
     } else {
-      alert("Your appointment is booked!");
-      navigate("/DonorList");
+      Swal.fire({
+        icon: "success",
+        title: "Appointment Confirmed!",
+        text: "Thank you for booking. We'll see you soon!",
+        confirmButtonColor: "#4d0404",
+      }).then(() => {
+        navigate("/DonorList");
+      })
     }
-  };
+  }
 
   return (
     <div className="donate-container">

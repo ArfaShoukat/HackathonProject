@@ -5,11 +5,14 @@
   box-sizing: border-box;
   background-color: #fafafa;
   margin-top: 6rem;
- 
+  font-family: Arial, sans-serif;
+  margin-top: 6rem;
+  background-color: #fafafa;
+  padding: 2rem
 }
 
 .hero-section {
-  background: linear-gradient(150deg, #4d0404, #f1faee);
+  background: linear-gradient(150deg, #360101 50%, #661111 75%, #f8f8f8 100%);
   color: white;
   text-align: center;
   padding: 4rem 2rem;
@@ -96,7 +99,7 @@
 }
 
 .appointment-form .primary-btn:hover {
-  background-color: #d62828;
+  background-color: #6b0606;
 }
 
 
@@ -191,7 +194,7 @@
 }
 
 .eligibility .primary-btn:hover {
-  background-color: #d62828;
+  background-color: #660505;
 }
 
 
@@ -248,13 +251,14 @@
   background-color: #4d0404;
   color: white;
 }
+
 .button-row {
 
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .footer {
@@ -266,7 +270,7 @@
   align-items: center;
   flex-wrap: wrap;
   text-align: left;
-  width: 100%;        
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -282,7 +286,7 @@
   background-color: #f1faee;
   color: #4d0404;
   border: none;
- 
+
   cursor: pointer;
   font-size: 1.2rem;
 }

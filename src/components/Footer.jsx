@@ -5,13 +5,13 @@ import footerImg from './images/footerimg.jpeg';
 
 const Footer = () => {
   return (
-<motion.footer
-  className="footer-container"
-  initial={{ opacity: 0, x: -100 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true, amount: 0.3 }}
->
+    <motion.footer
+      className="footer-container"
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, amount: 0.3 }}
+    >
 
 
       <div className="footer-content">
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
             <div className="footer-block">
               <h4><i className="fas fa-phone-alt"></i> Get In Touch</h4>
-              <p>+1-555-123-4567</p>
+              <p>(+92)-867-678-6789</p>
               <p>info@lifelink.org</p>
             </div>
           </div>

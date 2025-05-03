@@ -84,6 +84,10 @@
   color: #fff;
 }
 
+.footer {
+  margin-top: 6rem;
+}
+
 @media screen and (max-width: 600px) {
   .donor-card {
     padding: 1rem;
@@ -98,23 +102,3 @@
     width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

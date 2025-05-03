@@ -35,7 +35,6 @@ const driveCards = [
 
 const Home = () => (
   <div className="donate-section">
-    {/* Gradient Card Section */}
     <motion.div
       className="gradient-card"
       initial={{ opacity: 0, x: -50 }}
