@@ -1,6 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
-import { FaHandHoldingHeart, FaUsers, FaTint, FaLink, FaUserMd, FaRegComments } from 'react-icons/fa';
+import { FaTint, FaLink, FaUserMd, FaRegComments, FaPhone, FaEnvelope,FaInfoCircle } from 'react-icons/fa';
 
 const AboutUs = () => {
   return (
@@ -56,6 +56,11 @@ const AboutUs = () => {
             <p>You must be 18+, healthy, and meet standard medical requirements.</p>
           </details>
         </div>
+        <footer className="footer">
+                <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
+                <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
+                <p>&copy; 2023 LifeLink - Website design by Arfa</p>
+              </footer>
       </div>
     </section>
   );

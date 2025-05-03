@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     background-color: #fafafa;
+    margin-top: 6rem;
    
   }
   
@@ -235,7 +236,7 @@
     color: white;
   }
   
-  /* Footer */
+ 
   .footer {
     background-color: #4d0404;
     color: rgb(255, 255, 255);

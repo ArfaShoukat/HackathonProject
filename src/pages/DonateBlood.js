@@ -77,7 +77,7 @@ const DonateBlood = () => {
         <button className="primary-btn">Start Saving Lives</button>
       </section>
 
-      <footer className="footer">a
+      <footer className="footer">
         <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
         <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
         <p>&copy; 2023 LifeLink - Website design by Arfa</p>
