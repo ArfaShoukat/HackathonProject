@@ -5,6 +5,7 @@ import donateImg from '../components/images/donateimg.jpg';
 
 const DonateBlood = () => {
   return (
+    
     <div className="donate-container">
       <section className="hero-section">
         <h1>Give the Gift of Life</h1>

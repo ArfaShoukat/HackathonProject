@@ -1,7 +1,6 @@
 
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
-import DonateCard from "./components/DonateCard";
 import AboutUs from "./pages/AboutUs";
 import Home from './pages/Home'
 import Signup from "./pages/Signup";

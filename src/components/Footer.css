@@ -1,10 +1,11 @@
 .footer-container {
-  background: linear-gradient(135deg, #68060e, #962323);
+  background: linear-gradient(135deg, #68060e, #af1d1d);
   color: #fff;
   padding: 40px 20px;
   font-family: 'Segoe UI', sans-serif;
   width: 100%; 
   box-sizing: border-box;
+  
 }
   
 .footer-content {
@@ -14,7 +15,7 @@
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  
+
 }
   
   .footer-image img {
@@ -92,7 +93,7 @@
   }
   
   .social-icon:hover {
-    background: #68060e;
+    background: #72030c;
     color: #fff;
     transform: scale(1.1);
   }

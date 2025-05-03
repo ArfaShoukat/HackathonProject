@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.css';
 import { motion } from 'framer-motion';
-import img1 from '../components/images/img1.jpg';
+import mainimg from '../components/images/mainimg.jpg';
 import sideimg from '../components/images/sideimg.jpg'
 import Footer from '../components/Footer';
 
@@ -55,7 +55,7 @@ const Home = () => (
         </button>
       </div>
       <div className="donate-image-container">
-        <img src={img1} alt="Blood donation awareness" className="donate-image" />
+        <img src={mainimg} alt="Blood donation awareness" className="donate-image" />
       </div>
     </motion.div>
 
@@ -143,11 +143,9 @@ const Home = () => (
         ))}
       </div>
     </motion.div>
-
-    {/* Footer Section */}
-    <div style={{ marginTop: '3rem' }}>
-      <Footer />
-    </div>
+    <div  style={{ marginTop: '3rem' }} className="footer-container">
+  <Footer />
+</div>
   </div>
 );
 
