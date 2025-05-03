@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./DonorList.css";
 import {
   FaTrashAlt,
   FaEdit,
@@ -10,42 +9,68 @@ import {
   FaStickyNote,
   FaSave,
   FaTimes,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
+import "./DonorList.css";
+import { supabase } from "../config/Supabase";
 
 const DonorList = () => {
   const [donors, setDonors] = useState([]);
-  const [editIndex, setEditIndex] = useState(null);
+  const [editingId, setEditingId] = useState(null);
   const [editedDonor, setEditedDonor] = useState({});
 
+  const fetchDonors = async () => {
+    const { data, error } = await supabase.from("donors").select("*").order("id", { ascending: false });
+    if (error) {
+      console.error("Error fetching donors:", error);
+    } else {
+      setDonors(data);
+    }
+  };
+
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("donors")) || [];
-    setDonors(data);
+    fetchDonors();
   }, []);
 
-  const handleDelete = (index) => {
-    const updatedDonors = [...donors];
-    updatedDonors.splice(index, 1);
-    setDonors(updatedDonors);
-    localStorage.setItem("donors", JSON.stringify(updatedDonors));
+  const handleDelete = async (id) => {
+    console.log("Attempting to delete donor with ID:", id);
+    const { error } = await supabase.from("donors").delete().eq("id", id);
+    if (error) {
+      console.error("Delete error:", error);
+      alert("Failed to delete donor.");
+    } else {
+      console.log("Deleted donor successfully.");
+      fetchDonors();
+    }
   };
 
-  const handleEdit = (index) => {
-    setEditIndex(index);
-    setEditedDonor({ ...donors[index] });
+  const handleEdit = (donor) => {
+    setEditingId(donor.id);
+    setEditedDonor({
+      name: donor.name || "",
+      email: donor.email || "",
+      phone: donor.phone || "",
+      blood_group: donor.blood_group || "",
+      city: donor.city || "",
+      notes: donor.notes || "",
+      id: donor.id,
+    });
   };
 
-  const handleSave = () => {
-    const updatedDonors = [...donors];
-    updatedDonors[editIndex] = editedDonor;
-    setDonors(updatedDonors);
-    localStorage.setItem("donors", JSON.stringify(updatedDonors));
-    setEditIndex(null);
-    setEditedDonor({});
-  };
+  const handleSave = async () => {
+    const { error } = await supabase
+      .from("donors")
+      .update(editedDonor)
+      .eq("id", editedDonor.id);
 
-  const handleCancel = () => {
-    setEditIndex(null);
-    setEditedDonor({});
+    if (error) {
+      console.error("Save error:", error);
+      alert("Failed to save changes.");
+    } else {
+      setEditingId(null);
+      setEditedDonor({});
+      fetchDonors();
+    }
   };
 
   const handleChange = (e) => {
@@ -59,96 +84,38 @@ const DonorList = () => {
       {donors.length === 0 ? (
         <p className="no-donors">No donors registered yet.</p>
       ) : (
-        donors.map((donor, index) => (
-          <div className="donor-card" key={index}>
-            {editIndex === index ? (
+        donors.map((donor) => (
+          <div className="donor-card" key={donor.id}>
+            {editingId === donor.id ? (
               <div className="donor-info">
-                <p>
-                  <FaUser />{" "}
-                  <input
-                    type="text"
-                    name="name"
-                    value={editedDonor.name}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <FaEnvelope />{" "}
-                  <input
-                    type="email"
-                    name="email"
-                    value={editedDonor.email}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <FaPhone />{" "}
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={editedDonor.phone}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <FaTint />{" "}
-                  <input
-                    type="text"
-                    name="bloodGroup"
-                    value={editedDonor.bloodGroup}
-                    onChange={handleChange}
-                  />
-                </p>
-                <p>
-                  <FaStickyNote />{" "}
-                  <input
-                    type="text"
-                    name="notes"
-                    value={editedDonor.notes || ""}
-                    onChange={handleChange}
-                  />
-                </p>
+                <p><FaUser /> <input name="name" value={editedDonor.name} onChange={handleChange} /></p>
+                <p><FaEnvelope /> <input name="email" value={editedDonor.email} onChange={handleChange} /></p>
+                <p><FaPhone /> <input name="phone" value={editedDonor.phone} onChange={handleChange} /></p>
+                <p><FaTint /> <input name="blood_group" value={editedDonor.blood_group} onChange={handleChange} /></p>
+                <p><FaMapMarkerAlt /> <input name="city" value={editedDonor.city} onChange={handleChange} /></p>
+                <p><FaStickyNote /> <input name="notes" value={editedDonor.notes} onChange={handleChange} /></p>
               </div>
             ) : (
               <div className="donor-info">
-                <p>
-                  <FaUser /> <strong>Name:</strong> {donor.name}
-                </p>
-                <p>
-                  <FaEnvelope /> <strong>Email:</strong> {donor.email}
-                </p>
-                <p>
-                  <FaPhone /> <strong>Phone:</strong> {donor.phone}
-                </p>
-                <p>
-                  <FaTint /> <strong>Blood Group:</strong> {donor.bloodGroup}
-                </p>
-                {donor.notes && (
-                  <p>
-                    <FaStickyNote /> <strong>Notes:</strong> {donor.notes}
-                  </p>
-                )}
+                <p><FaUser /> <strong>{donor.name}</strong></p>
+                <p><FaEnvelope /> {donor.email}</p>
+                <p><FaPhone /> {donor.phone}</p>
+                <p><FaTint /> {donor.blood_group}</p>
+                <p><FaMapMarkerAlt /> {donor.city}</p>
+                {donor.notes && <p><FaStickyNote /> {donor.notes}</p>}
               </div>
             )}
 
             <div className="action-buttons">
-              {editIndex === index ? (
+              {editingId === donor.id ? (
                 <>
-                  <button className="save-btn" onClick={handleSave}>
-                    <FaSave /> Save
-                  </button>
-                  <button className="cancel-btn" onClick={handleCancel}>
-                    <FaTimes /> Cancel
-                  </button>
+                  <button className="save-btn" onClick={handleSave}><FaSave /> Save</button>
+                  <button className="cancel-btn" onClick={() => { setEditingId(null); setEditedDonor({}); }}><FaTimes /> Cancel</button>
                 </>
               ) : (
                 <>
-                  <button className="edit-btn" onClick={() => handleEdit(index)}>
-                    <FaEdit /> Edit
-                  </button>
-                  <button className="delete-btn" onClick={() => handleDelete(index)}>
-                    <FaTrashAlt /> Delete
-                  </button>
+                  <button className="edit-btn" onClick={() => handleEdit(donor)}><FaEdit /> Edit</button>
+                  <button className="delete-btn" onClick={() => handleDelete(donor.id)}><FaTrashAlt /> Delete</button>
                 </>
               )}
             </div>
