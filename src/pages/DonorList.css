@@ -96,6 +96,15 @@
   .action-buttons {
     flex-direction: column;
     gap: 0.4rem;
+    align-items: flex-start;
+  }
+
+  .edit-btn,
+  .delete-btn,
+  .save-btn,
+  .cancel-btn {
+    width: auto;
+    min-width: 100px;
   }
 
   .donor-info input {

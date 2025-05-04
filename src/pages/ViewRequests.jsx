@@ -7,16 +7,23 @@ import {
   FaStickyNote,
   FaEdit,
   FaTrashAlt,
+  FaArrowLeft,
   FaSave,
   FaTimes,
 } from "react-icons/fa";
 import { supabase } from "../config/Supabase";
 import "./ViewRequests.css";
+import ScrollToTop from "../components/ScrollTop";
+import { useNavigate } from "react-router-dom";
+import BackArrow from "../components/BackArrow";
+
 
 const ViewRequests = () => {
   const [requests, setRequests] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editedRequest, setEditedRequest] = useState({});
+
+  const navigate = useNavigate();
 
   const fetchRequests = async () => {
     const { data, error } = await supabase
@@ -77,6 +84,7 @@ const ViewRequests = () => {
 
   return (
     <div className="requests-container">
+      <BackArrow />
       <h2 className="requests-title">Blood Request List</h2>
       {requests.length === 0 ? (
         <p className="no-requests">No blood requests found.</p>
@@ -115,6 +123,7 @@ const ViewRequests = () => {
           ))}
         </div>
       )}
+      <ScrollToTop />
     </div>
   );
 };

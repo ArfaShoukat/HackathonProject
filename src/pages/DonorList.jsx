@@ -14,6 +14,7 @@ import {
 import "./DonorList.css";
 import { supabase } from "../config/Supabase";
 import ScrollToTop from "../components/ScrollTop";
+import BackArrow from "../components/BackArrow";
 
 const DonorList = () => {
   const [donors, setDonors] = useState([]);
@@ -102,7 +103,7 @@ const DonorList = () => {
     } else {
       setEditingId(null);
       setEditedDonor({});
-      fetchDonors(); // fallback
+      fetchDonors();
     }
   };
 
@@ -113,6 +114,7 @@ const DonorList = () => {
 
   return (
     <div className="donor-container">
+      <BackArrow />
       <h2 className="title">All Registered Blood Donors List</h2>
       {donors.length === 0 ? (
         <p className="no-donors">No donors registered yet.</p>
