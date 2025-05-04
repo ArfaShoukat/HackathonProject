@@ -58,7 +58,7 @@ const DonateBlood = () => {
         title: "Appointment Confirmed!",
         text: "Thank you for booking. We'll see you soon!",
         confirmButtonColor: "#4d0404",
-      }).then(() => navigate("/DonorList"));
+      })
     }
   };
 

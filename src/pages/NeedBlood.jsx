@@ -13,6 +13,7 @@ import {
 import ScrollToTop from "../components/ScrollTop";
 import { supabase } from "../config/Supabase";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const NeedBlood = () => {
   const [name, setName] = useState("");
@@ -21,6 +22,7 @@ const NeedBlood = () => {
   const [bloodGroup, setBloodGroup] = useState("");
   const [info, setInfo] = useState("");
 
+  const navigate = useNavigate();
   const handleRequestSubmit = async () => {
     if (!name || !email || !phone || !bloodGroup) {
       Swal.fire({
@@ -30,7 +32,7 @@ const NeedBlood = () => {
       });
       return;
     }
-
+   
     const request = {
       name,
       email,
@@ -73,7 +75,7 @@ const NeedBlood = () => {
           Your blood needs are our priority.
         </motion.p>
 
-        {/* Emergency Request Card */}
+
         <motion.div
           className="card"
           initial={{ opacity: 0, y: 30 }}
@@ -133,6 +135,10 @@ const NeedBlood = () => {
           <button className="request-button" onClick={handleRequestSubmit}>
             Request Blood
           </button>
+          <button className="request-button" onClick={() => navigate("/ViewRequests")}>
+            View Request
+          </button>
+
           <div className="call-now">
             <p>Emergency? Request a callback and let us help you!</p>
             <button className="call-button">
