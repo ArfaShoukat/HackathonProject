@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NeedBlood.css";
 import { motion } from "framer-motion";
 import {
@@ -11,8 +11,58 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import ScrollToTop from "../components/ScrollTop";
+import { supabase } from "../config/Supabase";
+import Swal from "sweetalert2";
 
 const NeedBlood = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [bloodGroup, setBloodGroup] = useState("");
+  const [info, setInfo] = useState("");
+
+  const handleRequestSubmit = async () => {
+    if (!name || !email || !phone || !bloodGroup) {
+      Swal.fire({
+        icon: "warning",
+        title: "Missing Fields",
+        text: "Please fill in all required fields.",
+      });
+      return;
+    }
+
+    const request = {
+      name,
+      email,
+      phone,
+      blood_group: bloodGroup,
+      additional_info: info,
+    };
+
+    const { error } = await supabase.from("blood_requests").insert([request]);
+
+    if (error) {
+      console.error("Insert error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text: error.message || "Could not submit your request.",
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Request Sent",
+        text: "We’ve received your request. We'll respond shortly!",
+        confirmButtonColor: "#4d0404",
+      });
+      setName("");
+      setEmail("");
+      setPhone("");
+      setBloodGroup("");
+      setInfo("");
+    }
+  };
+
   return (
     <>
       <div className="need-blood-page">
@@ -23,6 +73,7 @@ const NeedBlood = () => {
           Your blood needs are our priority.
         </motion.p>
 
+        {/* Emergency Request Card */}
         <motion.div
           className="card"
           initial={{ opacity: 0, y: 30 }}
@@ -32,19 +83,34 @@ const NeedBlood = () => {
           <h2>Request for Emergency Blood</h2>
           <div className="input-group">
             <FaUser className="icon" />
-            <input type="text" placeholder="Full Name" />
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
           <div className="input-group">
             <FaEnvelope className="icon" />
-            <input type="email" placeholder="Email Address" />
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
           <div className="input-group">
             <FaPhone className="icon" />
-            <input type="tel" placeholder="Phone Number" />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
           </div>
           <div className="input-group">
             <FaTint className="icon" />
-            <select>
+            <select value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)}>
               <option value="">--Select Blood Type--</option>
               <option value="A+">A+</option>
               <option value="B+">B+</option>
@@ -58,9 +124,15 @@ const NeedBlood = () => {
           </div>
           <div className="input-group">
             <FaInfoCircle className="icon" />
-            <textarea placeholder="Any other information..."></textarea>
+            <textarea
+              placeholder="Any other information..."
+              value={info}
+              onChange={(e) => setInfo(e.target.value)}
+            ></textarea>
           </div>
-          <button className="request-button">Request Blood</button>
+          <button className="request-button" onClick={handleRequestSubmit}>
+            Request Blood
+          </button>
           <div className="call-now">
             <p>Emergency? Request a callback and let us help you!</p>
             <button className="call-button">
@@ -69,6 +141,7 @@ const NeedBlood = () => {
           </div>
         </motion.div>
 
+        {/* Search Stock */}
         <motion.div
           className="card"
           initial={{ opacity: 0, y: 30 }}
@@ -99,18 +172,9 @@ const NeedBlood = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>A+</td>
-                <td>Available</td>
-              </tr>
-              <tr>
-                <td>A+</td>
-                <td>Not Available</td>
-              </tr>
-              <tr>
-                <td>B+</td>
-                <td>Available</td>
-              </tr>
+              <tr><td>A+</td><td>Available</td></tr>
+              <tr><td>A+</td><td>Not Available</td></tr>
+              <tr><td>B+</td><td>Available</td></tr>
             </tbody>
           </table>
         </motion.div>
@@ -124,15 +188,9 @@ const NeedBlood = () => {
           <h2>Collecting Blood</h2>
           <p>From start to finish, here's what to expect.</p>
           <ol>
-            <li>
-              <strong>01 - Registration:</strong> Provide personal info and medical history.
-            </li>
-            <li>
-              <strong>02 - Screening:</strong> Vital signs check & eligibility questions.
-            </li>
-            <li>
-              <strong>03 - Donation:</strong> Blood is drawn and stored safely.
-            </li>
+            <li><strong>01 - Registration:</strong> Provide personal info and medical history.</li>
+            <li><strong>02 - Screening:</strong> Vital signs check & eligibility questions.</li>
+            <li><strong>03 - Donation:</strong> Blood is drawn and stored safely.</li>
           </ol>
         </motion.div>
 
@@ -155,14 +213,9 @@ const NeedBlood = () => {
         </motion.div>
       </div>
 
-
       <footer className="footer">
-        <p>
-          <FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7
-        </p>
-        <p>
-          <FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com
-        </p>
+        <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
+        <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
         <p>&copy; 2023 LifeLink - Website design by Arfa</p>
       </footer>
 
