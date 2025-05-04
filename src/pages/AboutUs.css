@@ -3,6 +3,9 @@ body {
   background-color: #fdfdfd;
   color: #222;
   margin-top: 6rem;
+  overflow-x: hidden;
+
+
 }
 
 .about-section {

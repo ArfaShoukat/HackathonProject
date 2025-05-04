@@ -23,6 +23,7 @@ const NeedBlood = () => {
   const [info, setInfo] = useState("");
 
   const navigate = useNavigate();
+
   const handleRequestSubmit = async () => {
     if (!name || !email || !phone || !bloodGroup) {
       Swal.fire({
@@ -32,7 +33,7 @@ const NeedBlood = () => {
       });
       return;
     }
-   
+
     const request = {
       name,
       email,
@@ -75,7 +76,7 @@ const NeedBlood = () => {
           Your blood needs are our priority.
         </motion.p>
 
-
+        {/* Request Blood Form */}
         <motion.div
           className="card"
           initial={{ opacity: 0, y: 30 }}
@@ -132,22 +133,31 @@ const NeedBlood = () => {
               onChange={(e) => setInfo(e.target.value)}
             ></textarea>
           </div>
-          <button className="request-button" onClick={handleRequestSubmit}>
-            Request Blood
-          </button>
-          <button className="request-button" onClick={() => navigate("/ViewRequests")}>
-            View Request
-          </button>
-
-          <div className="call-now">
-            <p>Emergency? Request a callback and let us help you!</p>
-            <button className="call-button">
-              <FaPhoneAlt /> Call Now
+          <div className="button-group">
+            <button className="request-button" onClick={handleRequestSubmit}>
+              Request Blood
+            </button>
+            <button className="search-button" onClick={() => navigate("/ViewRequests")}>
+              See Your Requests
             </button>
           </div>
         </motion.div>
 
-        {/* Search Stock */}
+
+        <motion.div
+          className="card"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+        >
+          <h2>Need Immediate Help?</h2>
+          <p>Emergency? Request a callback and let us help you!</p>
+          <button className="call-button">
+            <FaPhoneAlt /> Call Now
+          </button>
+        </motion.div>
+
+
         <motion.div
           className="card"
           initial={{ opacity: 0, y: 30 }}
@@ -184,6 +194,7 @@ const NeedBlood = () => {
             </tbody>
           </table>
         </motion.div>
+
 
         <motion.div
           className="card info-card"

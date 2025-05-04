@@ -125,10 +125,18 @@ textarea {
     resize: vertical;
     height: 80px;
 }
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; 
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
 
 .request-button,
 .call-button,
 .search-button {
+    
     background-color: #4d0404;
     color: #fff;
     border: none;
@@ -138,6 +146,7 @@ textarea {
     font-weight: bold;
     transition: background 0.3s ease;
     margin-top: 0.5rem;
+
 }
 
 .request-button:hover,
