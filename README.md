@@ -94,31 +94,6 @@ npm run dev
 
 Open your browser and go to: [http://localhost:5173](http://localhost:5173)
 
----
-
-## 📁 Project Structure
-
-```
-blood-donation-app/
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   │   ├── Home.js
-│   │   ├── About.js
-│   │   ├── DonateBlood.js
-│   │   ├── NeedBlood.js
-│   │   ├── ViewRequests.js
-│   ├── App.js
-│   ├── main.jsx
-│   └── supabaseClient.js
-├── .env
-├── index.html
-├── tailwind.config.js
-└── vite.config.js
-```
-
----
 
 ## 📌 Contribution Guidelines
 
