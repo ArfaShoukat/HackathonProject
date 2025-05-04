@@ -105,7 +105,7 @@ const Home = () => (
         </div>
       </motion.div>
 
-      {/* Right Image */}
+
       <motion.div
         className="side-image-container"
         initial={{ opacity: 0, x: 50 }}
@@ -117,7 +117,7 @@ const Home = () => (
       </motion.div>
     </div>
 
-    {/* Upcoming Drives Section */}
+
     <motion.div
       className="upcoming-drives-container"
       initial={{ opacity: 0, y: 50 }}

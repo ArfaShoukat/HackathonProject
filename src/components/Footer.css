@@ -25,7 +25,7 @@
 
 .footer-info {
   flex: 1;
-  min-width: 260px;
+  min-width: 240px;
 }
 
 .footer-info h2 {
@@ -106,8 +106,9 @@
 .footer-bottom {
   font-size: 14px;
   color: #aaa;
-  text-align: center;
+  justify-content: center;
   margin-top: 10px;
+
 }
 
 @media (max-width: 768px) {
@@ -152,7 +153,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 280px) {
   .footer-info h2 {
     font-size: 18px;
   }
