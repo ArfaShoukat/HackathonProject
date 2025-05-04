@@ -76,7 +76,7 @@ const NeedBlood = () => {
           Your blood needs are our priority.
         </motion.p>
 
-        {/* Request Blood Form */}
+
         <motion.div
           className="card"
           initial={{ opacity: 0, y: 30 }}
