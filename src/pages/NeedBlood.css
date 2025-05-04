@@ -1,0 +1,154 @@
+.need-blood-page {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
+    color: #222;
+  }
+  
+  h1, h2 {
+    color: #4d0404;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  /* ==== Card Style ==== */
+  .card {
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, background 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(45deg, #ffdddd, #ffeaea);
+  }
+  
+  /* ==== Input Group Styling ==== */
+  .input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid #ccc;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    background: #f9f9f9;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .input-group .icon {
+    color: #b30000;
+    font-size: 1.2rem;
+  }
+  
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    padding: 0.4rem 0;
+  }
+  
+  textarea {
+    resize: vertical;
+    height: 80px;
+  }
+  
+  /* ==== Buttons ==== */
+  .request-button,
+  .call-button,
+  .search-button {
+    background-color: #4d0404;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .request-button:hover,
+  .call-button:hover,
+  .search-button:hover {
+    background-color: #800000;
+  }
+  
+  .call-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  /* ==== Table Styling ==== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    color: #4d0404;
+    font-weight: bold;
+  }
+  
+  /* ==== List Styling ==== */
+  ol, ul {
+    padding-left: 1.25rem;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ==== Mobile Responsive ==== */
+  @media (max-width: 600px) {
+    .input-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .input-group .icon {
+      margin-bottom: 0.5rem;
+    }
+  
+    .request-button,
+    .call-button,
+    .search-button {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    table {
+      font-size: 0.9rem;
+    }
+  
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+  

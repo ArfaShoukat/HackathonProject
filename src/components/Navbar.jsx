@@ -56,7 +56,9 @@ const Navbar = () => {
           Dashboard
         </Link>
         <Link to="/DonateBlood" onClick={() => setMenuOpen(false)}>Donate Blood</Link>
+        <Link to="/NeedBlood" onClick={() => setMenuOpen(false)}>Need Blood</Link>
         <Link to="/ContactUs" onClick={() => setMenuOpen(false)}>Contact Us</Link>
+
 
         {!user ? (
           <>

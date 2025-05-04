@@ -9,6 +9,8 @@ import DonateBlood from "../pages/DonateBlood";
 import DonorList from "../pages/DonorList";
 import DonorDashboard from "../pages/DonorDashboard";
 import ContactUs from '../pages/ContactUs'
+import NeedBlood from '../pages/NeedBlood'
+
 
 const AppRouter = createBrowserRouter([
   {
@@ -23,6 +25,8 @@ const AppRouter = createBrowserRouter([
       { path: "/DonorList", element: <DonorList /> },
       { path: "/DonorDashboard", element: <DonorDashboard /> },
       { path: "/ContactUs", element: <ContactUs /> },
+      { path: "/NeedBlood", element: <NeedBlood /> },
+
 
     ],
   },

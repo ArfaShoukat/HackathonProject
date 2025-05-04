@@ -46,6 +46,9 @@ const Home = () => (
       <p className="card-description">
         Your blood donation can make a life-saving difference. Join LifeLink in supporting our community's blood needs.
       </p>
+      <div className="cta-buttons">
+
+      </div>
       <div className="card-buttons">
         <button className="card-button">
           <i className="fas fa-map-marker-alt"></i> Find a Drive

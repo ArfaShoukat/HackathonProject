@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import "./DonateBlood.css";
 import { motion } from "framer-motion";
@@ -9,13 +11,15 @@ import {
   FaHandHoldingHeart,
   FaPhone,
   FaEnvelope,
+  FaUser,
+  FaMapMarkerAlt,
+  FaStickyNote
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import donateImg from "../components/images/donateimg.jpg";
 import ScrollToTop from "../components/ScrollTop";
 import { supabase } from "../config/Supabase";
 import Swal from 'sweetalert2';
-
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -27,16 +31,7 @@ const fadeUp = {
 };
 
 const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
-
-const cities = [
-  "Karachi",
-  "Lahore",
-  "Islamabad",
-  "Rawalpindi",
-  "Peshawar",
-  "Quetta",
-  "Multan",
-];
+const cities = ["Karachi", "Lahore", "Islamabad", "Rawalpindi", "Peshawar", "Quetta", "Multan"];
 
 const DonateBlood = () => {
   const navigate = useNavigate();
@@ -50,12 +45,10 @@ const DonateBlood = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const donor = { name, email, phone, blood_group: bloodGroup, notes, city };
     const { data, error } = await supabase.from("donors").insert([donor]);
 
     if (error) {
-      console.error("Supabase error:", error);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -67,20 +60,13 @@ const DonateBlood = () => {
         title: "Appointment Confirmed!",
         text: "Thank you for booking. We'll see you soon!",
         confirmButtonColor: "#4d0404",
-      }).then(() => {
-        navigate("/DonorList");
-      })
+      }).then(() => navigate("/DonorList"));
     }
-  }
+  };
 
   return (
     <div className="donate-container">
-      <motion.section
-        className="hero-section"
-        initial="hidden"
-        animate="visible"
-        variants={fadeUp}
-      >
+      <motion.section className="hero-section" initial="hidden" animate="visible" variants={fadeUp}>
         <h1>Give the Gift of Life</h1>
         <p>One donation can change someone's world. Become a blood donor today.</p>
         <motion.button whileHover={{ scale: 1.1 }} className="primary-btn">
@@ -96,21 +82,42 @@ const DonateBlood = () => {
 
           <motion.form className="form-right" variants={fadeUp} onSubmit={handleSubmit}>
             <h2><FaCalendarAlt /> Book Your Donation</h2>
-            <input type="text" placeholder="Full Name" required value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="tel" placeholder="Phone Number (+92...)" required value={phone} onChange={(e) => setPhone(e.target.value)} />
 
-            <select required value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)}>
-              <option value="">Select Blood Group</option>
-              {bloodGroups.map(group => <option key={group} value={group}>{group}</option>)}
-            </select>
+            <div className="input-group">
+              <FaUser className="input-icon" />
+              <input type="text" placeholder="Full Name" required value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
 
-            <select required value={city} onChange={(e) => setCity(e.target.value)}>
-              <option value="">Select City</option>
-              {cities.map(city => <option key={city} value={city}>{city}</option>)}
-            </select>
+            <div className="input-group">
+              <FaEnvelope className="input-icon" />
+              <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
 
-            <textarea placeholder="Additional Notes..." rows="4" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+            <div className="input-group">
+              <FaPhone className="input-icon" />
+              <input type="tel" placeholder="Phone Number (+92...)" required value={phone} onChange={(e) => setPhone(e.target.value)} />
+            </div>
+
+            <div className="input-group">
+              <FaTint className="input-icon" />
+              <select required value={bloodGroup} onChange={(e) => setBloodGroup(e.target.value)}>
+                <option value="">Select Blood Group</option>
+                {bloodGroups.map(group => <option key={group} value={group}>{group}</option>)}
+              </select>
+            </div>
+
+            <div className="input-group">
+              <FaMapMarkerAlt className="input-icon" />
+              <select required value={city} onChange={(e) => setCity(e.target.value)}>
+                <option value="">Select City</option>
+                {cities.map(city => <option key={city} value={city}>{city}</option>)}
+              </select>
+            </div>
+
+            <div className="input-group">
+              <FaStickyNote className="input-icon" />
+              <textarea placeholder="Additional Notes..." rows="4" value={notes} onChange={(e) => setNotes(e.target.value)}></textarea>
+            </div>
 
             <div className="button-row">
               <motion.button type="submit" className="primary-btn" whileHover={{ scale: 1.05 }}>
@@ -128,15 +135,7 @@ const DonateBlood = () => {
         <h2><FaTint /> How It Works</h2>
         <div className="steps">
           {["Check Eligibility", "Book Your Slot", "Donate Blood"].map((title, index) => (
-            <motion.div
-              className="step"
-              key={title}
-              custom={index + 1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <motion.div className="step" key={title} custom={index + 1} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
               <span>{`0${index + 1}`}</span>
               <h3>{title}</h3>
               <p>{

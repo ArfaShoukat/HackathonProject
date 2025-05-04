@@ -103,18 +103,6 @@ const DonorDashboard = () => {
                     </ResponsiveContainer>
                 </div>
             </div>
-            <motion.footer
-                className="footer"
-                variants={fadeInUp}
-                custom={5}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-            >
-                <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
-                <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
-                <p>&copy; 2023 LifeLink - Website design by Arfa</p>
-            </motion.footer>
             <ScrollToTop />
         </div>
     );
