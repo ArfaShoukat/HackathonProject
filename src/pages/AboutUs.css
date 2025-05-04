@@ -44,6 +44,11 @@ body {
   border-left: 5px solid #c62828;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.goal:hover {
+  transform: translateY(-5px);
 }
 
 .goal i {
@@ -79,6 +84,11 @@ blockquote {
   min-width: 200px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
 }
 
 .team-member i {
@@ -95,6 +105,11 @@ blockquote {
   border-radius: 5px;
   text-decoration: none;
   margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #a70000;
 }
 
 .stats {
@@ -109,6 +124,11 @@ blockquote {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stat:hover {
+  transform: scale(1.05);
 }
 
 .stat h3 {
@@ -130,6 +150,26 @@ blockquote {
   cursor: pointer;
 }
 
+/* ✅ Footer outside container */
+.footer {
+  background: #b80000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer svg {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
 
   .mission-goals,
@@ -141,5 +181,21 @@ blockquote {
 
   .container h1 {
     font-size: 28px;
+  }
+
+  .intro,
+  .description {
+    font-size: 16px;
+  }
+
+  .team-member,
+  .goal,
+  .stat {
+    min-width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
   }
 }

@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import "./DonateBlood.css";
 import { motion } from "framer-motion";
@@ -181,11 +179,13 @@ const DonateBlood = () => {
         </motion.button>
       </motion.section>
 
-      <footer className="footer">
-        <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
-        <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
-        <p>&copy; 2023 LifeLink - Website design by Arfa</p>
-      </footer>
+      <div className="footer-wrapper">
+        <footer className="footer">
+          <p><FaInfoCircle /> LifeLink | Karachi, Pakistan | Open 24/7</p>
+          <p><FaPhone /> (+92)-867-678-6789 | <FaEnvelope /> help@lifeLink.com</p>
+          <p>&copy; 2023 LifeLink - Website design by Arfa</p>
+        </footer>
+      </div>
 
       <ScrollToTop />
     </div>

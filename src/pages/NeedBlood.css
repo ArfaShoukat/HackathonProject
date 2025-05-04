@@ -4,34 +4,78 @@
     margin: auto;
     font-family: 'Segoe UI', sans-serif;
     color: #222;
-  }
-  
-  h1, h2 {
+}
+
+h1,
+h2 {
     color: #4d0404;
     margin-bottom: 1rem;
-  }
-  
-  p {
+}
+
+p {
     margin-bottom: 1rem;
-  }
-  
-  /* ==== Card Style ==== */
-  .card {
+}
+
+.card {
     background: linear-gradient(to right, #ffffff, #f8f9fa);
     padding: 2rem;
     margin-bottom: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease-in-out, background 0.3s ease;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-5px);
     background: linear-gradient(45deg, #ffdddd, #ffeaea);
-  }
-  
-  /* ==== Input Group Styling ==== */
-  .input-group {
+}
+
+.info-card {
+    position: relative;
+    background: linear-gradient(to right, #4d0404, #962323);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: white;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(135deg, #91242d, #962323);
+    transform: scaleX(0) scaleY(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.info-card:hover::before {
+    transform: scaleX(1) scaleY(1);
+    transform-origin: top left;
+}
+
+.info-card:hover {
+    transform: translateY(-10px) skew(-5deg, -5deg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-card * {
+    position: relative;
+    z-index: 1;
+}
+
+.info-card h2 {
+    color: white;
+}
+
+.input-group {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -41,16 +85,15 @@
     background: #f9f9f9;
     margin-bottom: 1rem;
     flex-wrap: wrap;
-  }
-  
-  .input-group .icon {
+}
+
+.input-group .icon {
     color: #b30000;
     font-size: 1.2rem;
-  }
-  
-  .input-group input,
-  .input-group select,
-  .input-group textarea {
+}
+
+.input-group input,
+.input-group textarea {
     border: none;
     outline: none;
     font-size: 1rem;
@@ -58,17 +101,34 @@
     min-width: 0;
     background: transparent;
     padding: 0.4rem 0;
-  }
-  
-  textarea {
+}
+
+.input-group select {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    padding: 0.4rem 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg fill='%234d0404' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 12px;
+    padding-right: 2rem;
+}
+
+textarea {
     resize: vertical;
     height: 80px;
-  }
-  
-  /* ==== Buttons ==== */
-  .request-button,
-  .call-button,
-  .search-button {
+}
+
+.request-button,
+.call-button,
+.search-button {
     background-color: #4d0404;
     color: #fff;
     border: none;
@@ -78,23 +138,22 @@
     font-weight: bold;
     transition: background 0.3s ease;
     margin-top: 0.5rem;
-  }
-  
-  .request-button:hover,
-  .call-button:hover,
-  .search-button:hover {
+}
+
+.request-button:hover,
+.call-button:hover,
+.search-button:hover {
     background-color: #800000;
-  }
-  
-  .call-button {
+}
+
+.call-button {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-top: 1rem;
-  }
-  
-  /* ==== Table Styling ==== */
-  table {
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
@@ -102,53 +161,61 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  th, td {
+}
+
+th,
+td {
     border: 1px solid #ddd;
     padding: 0.75rem 1rem;
     text-align: left;
-  }
-  
-  th {
+}
+
+th {
     background-color: #f2f2f2;
     color: #4d0404;
     font-weight: bold;
-  }
-  
-  /* ==== List Styling ==== */
-  ol, ul {
+}
+
+ol,
+ul {
     padding-left: 1.25rem;
-  }
-  
-  li {
+}
+
+li {
     margin-bottom: 0.5rem;
-  }
-  
-  /* ==== Mobile Responsive ==== */
-  @media (max-width: 600px) {
+}
+
+@media (max-width: 600px) {
     .input-group {
-      flex-direction: column;
-      align-items: stretch;
+        flex-direction: column;
+        align-items: stretch;
     }
-  
+
     .input-group .icon {
-      margin-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
     }
-  
+
     .request-button,
     .call-button,
     .search-button {
-      width: 100%;
-      justify-content: center;
+        width: 100%;
+        justify-content: center;
     }
-  
+
     table {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  
-    th, td {
-      padding: 0.5rem;
+
+    th,
+    td {
+        padding: 0.5rem;
     }
-  }
-  
+}
+
+.footer {
+    background-color: #4d0404;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    width: 100%;
+}

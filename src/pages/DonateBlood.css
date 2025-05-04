@@ -5,8 +5,8 @@
   box-sizing: border-box;
   background-color: #fafafa;
   margin-top: 6rem;
-  padding: 2rem;
 }
+
 
 .hero-section {
   background: linear-gradient(150deg, #360101 50%, #661111 75%, #f8f8f8 100%);
@@ -41,9 +41,10 @@
   color: white;
 }
 
+/* Appointment Form */
 .appointment-form {
   background-color: #fff;
-  padding: 3rem;
+  padding: 3rem 2rem;
   margin: 2rem 0;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -133,6 +134,7 @@
   background-color: #6b0606;
 }
 
+/* Donation Process */
 .donation-process {
   padding: 4rem 2rem;
   background-color: #f1faee;
@@ -177,6 +179,7 @@
   color: #666;
 }
 
+/* Eligibility */
 .eligibility {
   background-color: #fff;
   padding: 3rem 2rem;
@@ -213,6 +216,7 @@
   background-color: #660505;
 }
 
+/* Why Donate Section */
 .why-donate {
   background-color: #f1faee;
   padding: 3rem 2rem;
@@ -231,6 +235,7 @@
   margin-bottom: 2rem;
 }
 
+/* CTA Quote */
 .cta-quote {
   background-color: #4d0404;
   color: white;
@@ -265,17 +270,18 @@
   color: white;
 }
 
+/* Footer Styling */
 .footer {
   background-color: #4d0404;
   color: white;
-  padding: 2rem 2rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  text-align: left;
+  text-align: center;
   width: 100%;
-  box-sizing: border-box;
+  padding: 2rem 1rem;
+  margin: 0;
 }
 
 .footer p {
@@ -283,21 +289,7 @@
   margin: 0.5rem 0;
 }
 
-.footer .primary-btn {
-  margin-top: 1rem;
-  padding: 1rem 2rem;
-  background-color: #f1faee;
-  color: #4d0404;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.footer .primary-btn:hover {
-  background-color: #4d0404;
-  color: white;
-}
-
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .form-container {
     flex-direction: column;
